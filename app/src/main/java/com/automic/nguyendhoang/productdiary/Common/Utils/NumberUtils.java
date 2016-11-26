@@ -1,5 +1,7 @@
 package com.automic.nguyendhoang.productdiary.Common.Utils;
 
+import com.automic.nguyendhoang.productdiary.Common.Constant;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
@@ -16,12 +18,11 @@ public class NumberUtils {
      * @param number Double number
      * @return return format value string.
      */
-    public static String NumberStandardizde(Double number) {
+    public static String NumberStandardize(Double number) {
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
-        symbols.setGroupingSeparator(',');
-        DecimalFormat formatter = new DecimalFormat("###,###,###,###,###.##", symbols);
+        symbols.setGroupingSeparator(Constant.DIVIDER_NUMBER_CURRENCY);
+        DecimalFormat formatter = new DecimalFormat(Constant.FORMAT_NUMBER_CURRENCY, symbols);
         formatter.format(number);
-//        return String.format(Locale.ENGLISH,"%.2f", number);
         return formatter.format(number);
     }
 }

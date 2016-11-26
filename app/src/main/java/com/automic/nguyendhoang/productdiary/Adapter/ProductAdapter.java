@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.automic.nguyendhoang.productdiary.Common.Constant;
 import com.automic.nguyendhoang.productdiary.R;
 import com.automic.nguyendhoang.productdiary.ViewModel.ProductViewModel;
 
@@ -78,7 +79,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         public void bindData(ProductViewModel productViewModel) {
             tvProduct.setText(productViewModel.getProductName());
-            tvTransaction.setText(String.valueOf(productViewModel.getNumberOfTransaction()) + " transactions");
+            tvTransaction.setText(String.valueOf(productViewModel.getNumberOfTransaction()) + Constant.TRANSACTION_STRING);
         }
 
         @Override

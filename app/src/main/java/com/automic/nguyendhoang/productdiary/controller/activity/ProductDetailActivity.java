@@ -56,10 +56,10 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        getSupportActionBar().setTitle("Transaction for " + model.getProductName());
+        getSupportActionBar().setTitle(Constant.TOOLBAR_TITLE + model.getProductName());
 
         Double total = productDetailViewModel.getTotal();
-        tvTotal.setText(Html.fromHtml(Constant.POUND_CHARACTER + NumberUtils.NumberStandardizde(total)));
+        tvTotal.setText(Html.fromHtml(Constant.POUND_CHARACTER + NumberUtils.NumberStandardize(total)));
 
         initRecycleView();
 

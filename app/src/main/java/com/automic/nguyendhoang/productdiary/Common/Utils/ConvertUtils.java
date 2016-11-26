@@ -1,5 +1,6 @@
 package com.automic.nguyendhoang.productdiary.Common.Utils;
 
+import com.automic.nguyendhoang.productdiary.Common.Constant;
 import com.automic.nguyendhoang.productdiary.Model.Rate;
 import com.automic.nguyendhoang.productdiary.Model.Transaction;
 import com.automic.nguyendhoang.productdiary.ViewModel.ProductViewModel;
@@ -98,7 +99,7 @@ public class ConvertUtils {
         }
         Map<String, Double> currencyRateMap = new HashMap<>();
         for (Rate rate : rateLists) {
-            String currencyKey = rate.getFrom() + "-" + rate.getTo();
+            String currencyKey = rate.getFrom() + Constant.CURRENCY_DIVIDER + rate.getTo();
             currencyRateMap.put(currencyKey, rate.getRate());
         }
         return currencyRateMap;
@@ -127,8 +128,8 @@ public class ConvertUtils {
          *  is exist
          *      return converted currency value
          * */
-        if (currencyRate.containsKey(fromCurrencyKey + "-" + toCurrencyKey)) {
-            Double rate = currencyRate.get(fromCurrencyKey + "-" + toCurrencyKey);
+        if (currencyRate.containsKey(fromCurrencyKey + Constant.CURRENCY_DIVIDER + toCurrencyKey)) {
+            Double rate = currencyRate.get(fromCurrencyKey + Constant.CURRENCY_DIVIDER + toCurrencyKey);
             convertedValue = initValue * rate;
             return convertedValue;
         }
@@ -139,7 +140,7 @@ public class ConvertUtils {
         for (Map.Entry<String, Double> entry : currencyRate.entrySet()) {
             String key = entry.getKey();
 
-            String[] splits = key.split("-");
+            String[] splits = key.split(Constant.CURRENCY_DIVIDER);
             if (splits[0].equals(fromCurrencyKey) && !splits[1].equals(previousCurrencyKey)) {
                 strings.add(splits[1]);
             }
@@ -148,8 +149,8 @@ public class ConvertUtils {
         for (String nextCurrencyKey : strings) {
             Double nextInitValue = initValue;
             // calculate converted currency value (@code=nextInitValue) of next currency
-            if (currencyRate.containsKey(fromCurrencyKey + "-" + nextCurrencyKey)) {
-                Double rate = currencyRate.get(fromCurrencyKey + "-" + nextCurrencyKey);
+            if (currencyRate.containsKey(fromCurrencyKey + Constant.CURRENCY_DIVIDER + nextCurrencyKey)) {
+                Double rate = currencyRate.get(fromCurrencyKey + Constant.CURRENCY_DIVIDER + nextCurrencyKey);
                 nextInitValue = nextInitValue * rate;
             }
             return convertToSpecifiedCurrency(nextCurrencyKey, nextInitValue, toCurrencyKey, fromCurrencyKey);

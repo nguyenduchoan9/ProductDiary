@@ -63,11 +63,11 @@ public class ProductDetailAdapter extends RecyclerView.Adapter<RecyclerView.View
 
         public void bindData(ConvertedCurrency convertedCurrency) {
             String initCurrencySymbol = convertedCurrency.equals(Constant.GBP) ? Constant.POUND_CHARACTER : Constant.DOLLAR_CHARACTER;
-            tvInitValue.setText(Html.fromHtml(initCurrencySymbol + NumberUtils.NumberStandardizde(convertedCurrency.getInitValue()) + " - " + convertedCurrency.getInitCurrency()));
+            tvInitValue.setText(Html.fromHtml(initCurrencySymbol + NumberUtils.NumberStandardize(convertedCurrency.getInitValue()) + " - " + convertedCurrency.getInitCurrency()));
 
             Double convertedValue = mConvertUtils.convertToSpecifiedCurrency(convertedCurrency.getInitCurrency(),
                     convertedCurrency.getInitValue(), Constant.GBP, "");
-            tvConvertedValue.setText(Html.fromHtml(Constant.POUND_CHARACTER + NumberUtils.NumberStandardizde(convertedValue)));
+            tvConvertedValue.setText(Html.fromHtml(Constant.POUND_CHARACTER + NumberUtils.NumberStandardize(convertedValue)));
         }
 
     }

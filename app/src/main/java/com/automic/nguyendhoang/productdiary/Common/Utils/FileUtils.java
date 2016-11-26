@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
 
+import com.automic.nguyendhoang.productdiary.Common.Constant;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,12 +20,12 @@ public class FileUtils {
     /**
      * Read file from Asset
      *
-     * @param context     Context
-     * @param fileName     name of file need to read
+     * @param context  Context
+     * @param fileName name of file need to read
      * @return return json string.
      */
     public static String loadJsonFromAsset(Context context, String fileName) {
-        String content = "{\"data\":";
+        String content = Constant.START_JSON_DATA_FILE_KEY;
 
         AssetManager am = context.getAssets();
         BufferedReader reader = null;
@@ -47,9 +49,8 @@ public class FileUtils {
             }
         }
         Log.d("jsoncontent", content);
-        return content + "}";
+        return content + Constant.END_JSON_DATA_FILE_KEY;
     }
-
 
 
 }
