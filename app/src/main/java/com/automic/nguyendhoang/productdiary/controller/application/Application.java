@@ -1,4 +1,4 @@
-package com.automic.nguyendhoang.productdiary.controller.application;
+package com.automic.nguyendhoang.productdiary.Controller.Application;
 
 import java.util.HashMap;
 

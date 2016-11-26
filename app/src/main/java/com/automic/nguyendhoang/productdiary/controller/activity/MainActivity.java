@@ -1,4 +1,4 @@
-package com.automic.nguyendhoang.productdiary.controller.activity;
+package com.automic.nguyendhoang.productdiary.Controller.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;

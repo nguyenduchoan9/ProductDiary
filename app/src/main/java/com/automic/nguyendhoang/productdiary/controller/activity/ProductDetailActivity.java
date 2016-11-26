@@ -1,4 +1,4 @@
-package com.automic.nguyendhoang.productdiary.controller.activity;
+package com.automic.nguyendhoang.productdiary.Controller.Activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
